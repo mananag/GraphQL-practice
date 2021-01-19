@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const schema = require('./schema/schema');
 const MongoClient = require('mongodb').MongoClient;
+const path = require('path')
 
 
 const app = express();
@@ -40,4 +41,12 @@ const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.js');
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
+//
+// app.get('*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../client/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send('err')
+//     }
+//   })
+// })
 module.exports = app;
